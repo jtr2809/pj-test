@@ -29,10 +29,11 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: jtr
+  username: <%= ENV['PG_USERNAME'] %>
+
 
   # The password associated with the postgres role (username).
-  password: 12345
+  password: <%= ENV['PG_PASSWORD'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -81,5 +82,5 @@ test:
 production:
   <<: *default
   database: pj_test_production
-  username: jtr
+  username: <%= ENV['PG_USERNAME'] %>
   password: <%= ENV['PJ_TEST_DATABASE_PASSWORD'] %>
