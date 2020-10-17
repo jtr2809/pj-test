@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Products Controller
 class V1::ProductsController < ApplicationController
   def index
     @products = Product.all
@@ -33,6 +36,7 @@ class V1::ProductsController < ApplicationController
   end
 
   private
+
   def product_params
     params.require(:product).permit(:name, :sku, :type, :price)
   end
