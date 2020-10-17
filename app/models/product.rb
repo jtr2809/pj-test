@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  enum type: { pizza: 'Pizza', complement: 'Complement' }
+  enum category: { pizza: 'Pizza', complement: 'Complement' }
 end
