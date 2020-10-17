@@ -31,7 +31,6 @@ development:
   # the same name as the operating system user that initialized the database.
   username: <%= ENV['PG_USERNAME'] %>
 
-
   # The password associated with the postgres role (username).
   password: <%= ENV['PG_PASSWORD'] %>
 

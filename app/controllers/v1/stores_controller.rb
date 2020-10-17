@@ -34,6 +34,6 @@ class V1::StoresController < ApplicationController
 
   private
   def store_params
-    params.require(:contact).permit(:name, :address, :email, :phone)
+    params.require(:store).permit(:name, :address, :email, :phone)
   end
 end
