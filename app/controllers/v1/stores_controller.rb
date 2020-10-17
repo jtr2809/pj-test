@@ -5,6 +5,15 @@ class V1::StoresController < ApplicationController
     render json: @stores, status: 200
   end
 
+  def show
+    @store = Store.find_by(id: params[:id])
+    if @store
+      render json: @store, status: :ok
+    else
+      render json: @store.errors.full_messages, status: :error
+    end
+  end
+
   def create
     @store = Store.new(store_params)
     if @store.save
@@ -33,6 +42,7 @@ class V1::StoresController < ApplicationController
   end
 
   private
+
   def store_params
     params.require(:store).permit(:name, :address, :email, :phone)
   end
