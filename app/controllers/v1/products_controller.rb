@@ -1,11 +1,18 @@
-# frozen_string_literal: true
-
 # Products Controller
 class V1::ProductsController < ApplicationController
   def index
     @products = Product.all
 
     render json: @products, status: 200
+  end
+
+  def show
+    @product = Product.find_by(id: params[:id])
+    if @product
+      render json: @product, status: 200
+    else
+      render json: @product.errors.full_messages, status: :error
+    end
   end
 
   def create
@@ -18,7 +25,7 @@ class V1::ProductsController < ApplicationController
   end
 
   def update
-    @product = product.find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id])
     if @product.update(product_params)
       render json: @product, status: :ok
     else
